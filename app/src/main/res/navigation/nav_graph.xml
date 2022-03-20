@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/beersListFragment">
+
+    <fragment
+        android:id="@+id/beersListFragment"
+        android:name="com.example.tp2_foesser_mondiere.BeersListFragment"
+        android:label="fragment_beers_list"
+        tools:layout="@layout/fragment_beers_list" >
+        <action
+            android:id="@+id/action_beersListFragment_to_beerViewPagerFragment"
+            app:destination="@id/beerViewPagerFragment"
+            app:popUpToInclusive="false" />
+    </fragment>
+    <fragment
+        android:id="@+id/beerViewPagerFragment"
+        android:name="com.example.tp2_foesser_mondiere.BeerViewPagerFragment"
+        android:label="BeerViewPagerFragment" />
+</navigation>
