@@ -17,7 +17,7 @@ import kotlin.text.StringBuilder
 
 class BeerFragment(val beerPos : Int = -1) : Fragment(R.layout.beer_view) {
     private val bs : BeerViewModel by activityViewModels()
-    private var beer: LiveData<Beer>? = null;
+    private var beer: LiveData<Beer>? = null
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -39,15 +39,16 @@ class BeerFragment(val beerPos : Int = -1) : Fragment(R.layout.beer_view) {
         else
             beer = bs.getBeerId(beerPos)
         beer!!.observe(viewLifecycleOwner,{
-            val sb:StringBuilder = StringBuilder(10);
-            sb.append(it.abv);
-            sb.append("%");
+            val sb:StringBuilder = StringBuilder(10) //Utilisation d'un string builder pour
+            //l'immuabilité de la string
+            sb.append(it.abv)
+            sb.append("%") //Degré d'alcool de la bière
             title.text = it.name
-            abv.text = sb.toString();
+            abv.text = sb.toString()
             tags.text = it.tagline
             description.text = it.description
             image.load(it.image_url)
-            foods.text=""
+            foods.text="" //les aliments qui vont bien avec cette bière
             val buildString:StringBuilder = StringBuilder()
             for (food in it.food_pairing) {
                 buildString.append("- ")

@@ -30,9 +30,9 @@ class BeerViewPagerFragment: Fragment(R.layout.beer_viewpager) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         viewPager = view.findViewById<ViewPager2>(R.id.ViewPagerBeer)
-        val pageAdapter = ScreenSlidePagerAdapter(this)
-        viewPager?.adapter = pageAdapter;
-        viewPager?.setCurrentItem(bs.getBeerIdSelected(),false);
+        val pageAdapter = ScreenSlidePagerAdapter(this) //Ajout de la possibilité de Swipe entre les bières
+        viewPager?.adapter = pageAdapter
+        viewPager?.setCurrentItem(bs.getBeerIdSelected(),false) //Sélectionne la bière
         callbackPageChanged = object : ViewPager2.OnPageChangeCallback() {
             override fun onPageSelected(position: Int) {
                 bs.selectBeer(position)
@@ -50,7 +50,7 @@ class BeerViewPagerFragment: Fragment(R.layout.beer_viewpager) {
     private inner class ScreenSlidePagerAdapter(fa: BeerViewPagerFragment) : FragmentStateAdapter(fa) {
         private val bs : BeerViewModel by activityViewModels()
         override fun getItemCount(): Int{
-            return bs.getBeers().value!!.size;
+            return bs.getBeers().value!!.size
         }
 
         override fun createFragment(position: Int):Fragment {
