@@ -19,14 +19,14 @@ import kotlinx.coroutines.runBlocking
 import java.io.Console
 
 class BeerViewModel:ViewModel() {
-    private var beerIdSelected : Int = -1;
+    private var beerIdSelected : Int = -1
     private var beerSelected : MutableLiveData<Beer> = MutableLiveData<Beer>()
     private val beers : MutableLiveData<List<Beer>> by lazy {
         MutableLiveData<List<Beer>>().also {
             this.loadBeers()
         }
     }
-    private fun loadBeers(){
+    private fun loadBeers(){ //Méthode permettant de récupérer les bières
 
         val client = HttpClient(CIO) {
             expectSuccess = false
@@ -44,22 +44,22 @@ class BeerViewModel:ViewModel() {
                 beers.value = listOf()
             }
             finally {
-                client.close();
+                client.close()
             }
         }
     }
     fun  getBeers(): LiveData<List<Beer>> {
-        return beers;
+        return beers
     }
-    public fun selectBeer(position : Int){
+    fun selectBeer(position : Int){
         beerIdSelected = position
         beerSelected.value = beers.value!![position]
     }
     fun getBeerId(position : Int): LiveData<Beer>{
         return MutableLiveData<Beer>(beers.value!![position])
     }
-    fun getBeerSelected():LiveData<Beer>?{
-        return beerSelected;
+    fun getBeerSelected():LiveData<Beer>{
+        return beerSelected
     }
     fun getBeerIdSelected():Int{
         return beerIdSelected

@@ -17,7 +17,7 @@ import com.example.tp2_foesser_mondiere.Model.Beer
 import com.example.tp2_foesser_mondiere.Model.BeerViewModel
 
 class BeersListFragment() : Fragment(R.layout.fragment_beers_list),BeerClickListener {
-    private val bs : BeerViewModel by activityViewModels()
+    private val bs : BeerViewModel by activityViewModels()//Récupère le View Model
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -38,9 +38,9 @@ class BeersListFragment() : Fragment(R.layout.fragment_beers_list),BeerClickList
             recyclerView.adapter = BeerAdapter(it,this)
         }
         )
-        recyclerView.post {
+        recyclerView.post { // permet de scroll jusqu'à la bière sélectionnée
             if (bs.getBeerIdSelected() != -1) {
-                var llm =
+                val llm =
                     recyclerView.layoutManager as LinearLayoutManager//.scrollToPosition(bs.getBeerIdSelected())
                 llm.scrollToPositionWithOffset(bs.getBeerIdSelected(),0)
                 //recyclerView.smoothScrollToPosition(bs.getBeerIdSelected())
@@ -57,7 +57,7 @@ class BeersListFragment() : Fragment(R.layout.fragment_beers_list),BeerClickList
         bs.selectBeer(position)
         findNavController().navigate(
             R.id.action_beersListFragment_to_beerViewPagerFragment,
-        )
+        ) //Permet d'accéder au détail de la bière
     }
 
 }
