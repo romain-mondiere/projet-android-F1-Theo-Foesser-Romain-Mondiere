@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:clickable="true"
+    app:cardElevation="3dp"
+    app:strokeWidth="2dp"
+    android:layout_marginVertical="3dp"
+    android:layout_marginHorizontal="6dp"
+    android:id="@+id/beer_materialCardView"
+    >
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        >
+        <com.google.android.material.imageview.ShapeableImageView
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:tools="http://schemas.android.com/tools"
+            android:layout_width="50dp"
+            android:id="@+id/beer_imageview"
+            android:layout_height="match_parent"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"
+            tools:src="@drawable/ic_launcher_background"/>
+
+        <LinearLayout
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            xmlns:tools="http://schemas.android.com/tools"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <com.google.android.material.textview.MaterialTextView
+                xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:tools="http://schemas.android.com/tools"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="1dp"
+                android:gravity="top|center_horizontal"
+                tools:text="hello"
+                android:textAppearance="?attr/textAppearanceHeadline6"
+                android:id="@+id/title_textview"
+                android:textColor="@color/primaryTextColor"
+                />
+            <com.google.android.material.textview.MaterialTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textAppearance="?attr/textAppearanceBody2"
+                android:textColor="?android:attr/textColorSecondary"
+                android:paddingBottom="6dp"
+                android:paddingStart="5dp"
+                android:paddingEnd="5dp"
+                android:gravity="bottom|left"
+                android:ellipsize="end"
+                android:inputType="none"
+                android:maxLines="1"
+                tools:text="description dchso   ioshvio oishso isdohfso sofihofhsd sfoshdfosdh sfoishdfoisdf
+dsfiohdsfoids "
+                android:id="@+id/description_textview"
+
+                />
+        </LinearLayout>
+    </LinearLayout>
+</com.google.android.material.card.MaterialCardView>
